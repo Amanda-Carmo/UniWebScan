@@ -155,6 +155,6 @@ Deste modo, com o nome do servidor, é possível verificar se o site está hospe
 ### Obtendo onde servidor DNS está hospedado
 O método `check_dns_server` é responsável por verificar onde o servidor DNS de um determinado URL está hospedado. Utiliza a biblioteca `tldextract` para extrair o nome de domínio e sufixo do URL fornecido. Em seguida, ela constrói a URL de consulta DNS usando o Google Public DNS e realiza uma solicitação HTTP para obter informações sobre o servidor DNS. Por fim, ela preenche a coluna `cloud_dns` do dataframe com o nome do servidor onde o servidor DNS está hospedado.
 
-### Ontendo informações sobre WAF (Web Application Firewall)
+### Obtendo informações sobre WAF (Web Application Firewall)
 O método `check_waf` é responsável por verificar se um site possui Web Application Firewall (WAF). Ele utiliza a biblioteca `WAFW00F` para realizar a verificação.
 Por meio da biblioteca, é possível obter o nome do(s) WAF(s). A função preenche a coluna `waf` do dataframe com o(s) nome(s) do(s) WAF(s) encontrado(s) e preenche a coluna `tem_waf` com 1, caso o site possua WAF, ou 0, caso não possua.
