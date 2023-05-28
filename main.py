@@ -261,8 +261,6 @@ class WebScan:
 
         self.console.print("Verificando se a URL é de uma universidade brasileira...", style="bold blue")
 
-
-
         if domain in nomes_universidades or domain in abreviacoes_universidades:
             self.console.print("Site de universidade brasileira")
 
