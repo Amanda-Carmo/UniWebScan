@@ -8,6 +8,7 @@ class IAASIp:
         self.ips_oracle = self.obter_ips_oracle()
         self.ips_azure = self.obter_ips_azure()
         self.ips_cloudflare = self.obter_ips_cloudflare()
+        self.ips_akamai = self.obter_ips_akamai()
 
     def obter_ips_aws(self):
         url = 'https://ip-ranges.amazonaws.com/ip-ranges.json'
@@ -19,8 +20,6 @@ class IAASIp:
         for prefix in data['prefixes']:
             if 'ip_prefix' in prefix:
                 ips_aws.add(prefix['ip_prefix'])
-
-
 
         return ips_aws
 
@@ -83,10 +82,21 @@ class IAASIp:
         for ip in data:
             ips_cloudflare.add(ip)
 
-
         return ips_cloudflare
-
     
+
+    def obter_ips_akamai(self):
+        ips_akamai = set()
+
+        url = 'https://raw.githubusercontent.com/SecOps-Institute/Akamai-ASN-and-IPs-List/master/akamai_ip_cidr_blocks.lst'
+        response = requests.get(url)
+        data = response.text.splitlines()
+
+        for ip in data:
+            ips_akamai.add(ip)
+        
+        return ips_akamai
+
 
 
 # Teste
