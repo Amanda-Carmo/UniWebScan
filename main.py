@@ -24,13 +24,13 @@ from time import sleep
 
 class CheckHosting(Robo): # Robo de https://github.com/4rfel/Robo-Selenium.git autor: Rafael dos Santos
     def check_hosting(self, url2check):
-        self.go_to_url("https://hostingchecker.com/")
-        self.wait_until_find_send_keys(By.CSS_SELECTOR, "input#url", url2check)
-        self.wait_until_find_click(By.CSS_SELECTOR, "input.pingsubmit")
-        host = self.wait_until_find(By.CSS_SELECTOR, ".hcresults > p:nth-child(2) > b:nth-child(1)")
+        self.go_to_url("https://hostingchecker.com/") # Abrindo o site
+        self.wait_until_find_send_keys(By.CSS_SELECTOR, "input#url", url2check) # Preenchendo o campo de URL
+        self.wait_until_find_click(By.CSS_SELECTOR, "input.pingsubmit") # Clicando no botão de submit
+        host = self.wait_until_find(By.CSS_SELECTOR, ".hcresults > p:nth-child(2) > b:nth-child(1)") # Obtendo o nome do servidor
         max_tries = 5
         tries = 0
-        while not host:
+        while not host: # Se não conseguir obter o nome do servidor, tentar novamente
             sleep(5)
             self.wait_until_find_click(By.CSS_SELECTOR, "input.pingsubmit")
             host = self.wait_until_find(By.CSS_SELECTOR, ".hcresults > p:nth-child(2) > b:nth-child(1)")
@@ -66,11 +66,6 @@ class WebScan:
         # Lendo o arquivo excel com os nomes das universidades
         df = pd.read_excel(excel_file)
         nomes_univ = df['univ'].apply(unidecode.unidecode).apply(lambda x: x.lower()).tolist()
-        # Mudar para lowcase
-        # nomes_univ = [x.lower() for x in nomes_univ]
-        # nomes_univ = unidecode.unidecode(nomes_univ.lower())
-
-        # print(nomes_univ)
 
         abrev_univ = df['abrev'].tolist()
 
