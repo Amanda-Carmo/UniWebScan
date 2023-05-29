@@ -30,7 +30,7 @@ As informações serão colocadas no arquivo `info_universidades.xlsx`, que poss
 - `tem_waf`: Se o site possui WAF.
 - `waf`: Nome do(s) WAF(s) utilizado(s).
 
- Um exemplo de como a tabela ficará após a execução do programa:
+Ao rodar o programa, será solicitado que se digite a url desejada e depois serão feitas as verificações. Um exemplo de como a tabela ficará após a execução do programa feita com algumas urls:
 
 ![Alt text](example_table.png "Optional title")
 
