@@ -19,7 +19,18 @@ Script, em python, para obter informações sobre universidades brasileiras.
     Verifica se o site está protegido por um WAF e, caso esteja, qual(is) WAF(s) utilizado(s).
 
 
-As informações serão colocadas no arquivo `info_universidades.xlsx`. Um exemplo de como a tabela ficará após a execução do programa:
+
+As informações serão colocadas no arquivo `info_universidades.xlsx`, que possui as colunas:
+
+- `nome_univ`: Nome da universidade.
+- `sigla_univ`: Sigla da universidade.
+- `url_univ`: URL do site da universidade.
+- `onde_hosteado`: Nome do provedor de serviços de infraestrutura como serviço (IaaS) onde o site está hospedado.
+- `cloud_dns`: Nome do provedor de serviços de infraestrutura como serviço (IaaS) onde o servidor DNS está hospedado.
+- `tem_waf`: Se o site possui WAF.
+- `waf`: Nome do(s) WAF(s) utilizado(s).
+
+ Um exemplo de como a tabela ficará após a execução do programa:
 
 ![Alt text](example_table.png "Optional title")
 
